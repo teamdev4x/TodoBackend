@@ -6,7 +6,6 @@ import dotenv from 'dotenv';
 dotenv.config({ silent: process.env.NODE_ENV === "production" });
 
 import { connectDB } from './config/db.js';
-import { errorHandler } from './middleware/errorMiddleware.js';
 import { fileURLToPath } from 'url';
 
 import accessroutes from './routes/AccessRoutes.js';
@@ -35,5 +34,4 @@ app.use("/category", categoryroutes);
 app.use("/notes", notesroutes);
 app.use("/task", taskroutes);
 
-app.use(errorHandler);
 app.listen(port, () => console.log(`Server started on port ${port}`));
